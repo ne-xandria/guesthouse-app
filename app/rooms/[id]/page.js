@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { notFound } from "next/navigation";
+import BookingForm from "./BookingForm";
 
 async function getRoom(id) {
   const { data, error } = await supabase
@@ -121,12 +122,8 @@ export default async function RoomDetailPage({ params }) {
           </div>
         </div>
 
-        {/* Placeholder form booking */}
-        <div className="rounded-2xl border border-dashed border-neutral-700 bg-neutral-900/50 p-8 text-center">
-          <p className="text-neutral-500 text-sm">
-            Form booking akan ditampilkan di sini.
-          </p>
-        </div>
+        {/* Form booking */}
+        <BookingForm room_id={room.id} />
       </main>
     </div>
   );
